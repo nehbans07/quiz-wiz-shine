@@ -8,35 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 100% 99%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 262 83% 58%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Quiz Game Colors */
+    --quiz-legend: 142 76% 36%;
+    --quiz-legend-foreground: 355.7 100% 97.3%;
+    --quiz-lamp: 45 93% 47%;
+    --quiz-lamp-foreground: 26 83% 14%;
+    --quiz-correct: 120 100% 25%;
+    --quiz-correct-foreground: 0 0% 100%;
+    --quiz-incorrect: 0 93% 94%;
+    --quiz-incorrect-foreground: 0 84.2% 60.2%;
+    
+    /* Character Colors */
+    --sports-primary: 199 89% 48%;
+    --sports-secondary: 199 89% 85%;
+    --memory-primary: 267 57% 50%;
+    --memory-secondary: 267 57% 85%;
+    --tech-primary: 173 80% 40%;
+    --tech-secondary: 173 80% 85%;
+    --entertainment-primary: 320 65% 52%;
+    --entertainment-secondary: 320 65% 85%;
+    --journalism-primary: 39 85% 59%;
+    --journalism-secondary: 39 85% 85%;
+
+    /* Gradients */
+    --gradient-quiz: linear-gradient(135deg, hsl(262 83% 58%), hsl(199 89% 48%));
+    --gradient-legend: linear-gradient(135deg, hsl(142 76% 36%), hsl(173 80% 40%));
+    --gradient-lamp: linear-gradient(135deg, hsl(45 93% 47%), hsl(39 85% 59%));
 
     --sidebar-background: 0 0% 98%;
 
