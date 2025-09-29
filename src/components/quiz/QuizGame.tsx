@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, XCircle, Crown, Lightbulb, ArrowLeft, ArrowRight } from "lucide-react";
+import lampImage from "@/assets/lamp-image.png";
 import { cn } from "@/lib/utils";
 
 interface QuizQuestion {
@@ -159,35 +160,35 @@ export const QuizGame = () => {
   };
 
   const renderIntroSlide = () => (
-    <div className="text-center space-y-8 animate-fade-in">
-      <div className="text-8xl animate-bounce-gentle">🪔</div>
-      <h1 className="text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent">
+    <div className="text-center space-y-6 md:space-y-8 animate-fade-in px-4">
+      <div className="text-6xl md:text-8xl animate-bounce-gentle">🪔</div>
+      <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent">
         Lamp ya Legend
       </h1>
-      <div className="text-2xl text-muted-foreground max-w-2xl mx-auto">
+      <div className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
         Get ready to discover the difference between characters who shine and characters who just... exist!
       </div>
     </div>
   );
 
   const renderInstructionsSlide = () => (
-    <div className="text-center space-y-8 animate-fade-in max-w-4xl mx-auto">
-      <h2 className="text-5xl font-bold text-primary mb-8">How to Play</h2>
-      <div className="text-xl text-foreground mb-8">
+    <div className="text-center space-y-6 md:space-y-8 animate-fade-in max-w-4xl mx-auto px-4">
+      <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6 md:mb-8">How to Play</h2>
+      <div className="text-lg md:text-xl text-foreground mb-6 md:mb-8">
         You're about to meet some women characters. Your job is to decide if they are a lamp or a legend in their stories:
       </div>
       
-      <div className="grid md:grid-cols-2 gap-8">
-        <Card className="p-8 bg-gradient-to-br from-quiz-lamp/20 to-quiz-lamp/10 border-quiz-lamp">
-          <div className="text-6xl mb-4">🪔</div>
-          <h3 className="text-2xl font-bold text-quiz-lamp mb-4">Lamp</h3>
-          <p className="text-lg">She is a 'lamp' if she looks good but doesn't speak, act, or change the story.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <Card className="p-6 md:p-8 bg-gradient-to-br from-quiz-lamp/20 to-quiz-lamp/10 border-quiz-lamp">
+          <div className="text-5xl md:text-6xl mb-4">🪔</div>
+          <h3 className="text-xl md:text-2xl font-bold text-quiz-lamp mb-4">Lamp</h3>
+          <p className="text-base md:text-lg">She is a 'lamp' if she looks good but doesn't speak, act, or change the story.</p>
         </Card>
         
-        <Card className="p-8 bg-gradient-to-br from-quiz-legend/20 to-quiz-legend/10 border-quiz-legend">
-          <div className="text-6xl mb-4">👑</div>
-          <h3 className="text-2xl font-bold text-quiz-legend mb-4">Legend</h3>
-          <p className="text-lg">She is a 'legend' if makes goals, makes choices, and changes the story.</p>
+        <Card className="p-6 md:p-8 bg-gradient-to-br from-quiz-legend/20 to-quiz-legend/10 border-quiz-legend">
+          <div className="text-5xl md:text-6xl mb-4">👑</div>
+          <h3 className="text-xl md:text-2xl font-bold text-quiz-legend mb-4">Legend</h3>
+          <p className="text-base md:text-lg">She is a 'legend' if makes goals, makes choices, and changes the story.</p>
         </Card>
       </div>
     </div>
@@ -208,36 +209,36 @@ export const QuizGame = () => {
     const question = quizData[currentQuestion];
     
     return (
-      <div className="space-y-8 animate-slide-in-right max-w-4xl mx-auto">
-        <div className="text-center mb-8">
+      <div className="space-y-6 md:space-y-8 animate-slide-in-right max-w-4xl mx-auto px-4">
+        <div className="text-center mb-6 md:mb-8">
           <Progress value={progress} className="w-full mb-4" />
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground">
             Question {currentQuestion + 1} of {totalQuestions}
           </p>
         </div>
 
-        <Card className={cn("p-8 bg-gradient-to-br", getThemeClasses(question.theme))}>
-          <div className="text-center space-y-6">
-            <div className="text-8xl">{question.emoji}</div>
-            <h3 className="text-3xl font-bold">Character {currentQuestion + 1}: {question.character}</h3>
-            <p className="text-xl leading-relaxed max-w-2xl mx-auto">"{question.description}"</p>
+        <Card className={cn("p-6 md:p-8 bg-gradient-to-br", getThemeClasses(question.theme))}>
+          <div className="text-center space-y-4 md:space-y-6">
+            <div className="text-6xl md:text-8xl">{question.emoji}</div>
+            <h3 className="text-xl md:text-3xl font-bold">Character {currentQuestion + 1}: {question.character}</h3>
+            <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">"{question.description}"</p>
             
-            <div className="pt-6">
-              <h4 className="text-2xl font-semibold mb-6">What is she?</h4>
+            <div className="pt-4 md:pt-6">
+              <h4 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">What is she?</h4>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
                 <Button
                   variant={selectedAnswer === "A" ? "default" : "outline"}
                   size="lg"
                   className={cn(
-                    "p-6 h-auto text-xl",
+                    "p-4 md:p-6 h-auto text-lg md:text-xl w-full",
                     selectedAnswer === "A" 
                       ? "bg-quiz-lamp text-quiz-lamp-foreground hover:bg-quiz-lamp/90" 
                       : "hover:bg-quiz-lamp/10 hover:border-quiz-lamp"
                   )}
                   onClick={() => handleAnswerSelect("A")}
                 >
-                  <Lightbulb className="w-6 h-6 mr-3" />
+                  <Lightbulb className="w-5 h-5 md:w-6 md:h-6 mr-3" />
                   Option A - Lamp
                 </Button>
                 
@@ -245,14 +246,14 @@ export const QuizGame = () => {
                   variant={selectedAnswer === "B" ? "default" : "outline"}
                   size="lg"
                   className={cn(
-                    "p-6 h-auto text-xl",
+                    "p-4 md:p-6 h-auto text-lg md:text-xl w-full",
                     selectedAnswer === "B" 
                       ? "bg-quiz-legend text-quiz-legend-foreground hover:bg-quiz-legend/90"
                       : "hover:bg-quiz-legend/10 hover:border-quiz-legend"
                   )}
                   onClick={() => handleAnswerSelect("B")}
                 >
-                  <Crown className="w-6 h-6 mr-3" />
+                  <Crown className="w-5 h-5 md:w-6 md:h-6 mr-3" />
                   Option B - Legend
                 </Button>
               </div>
@@ -269,32 +270,32 @@ export const QuizGame = () => {
     const correctAnswerText = question.correctAnswer === "A" ? "Lamp" : "Legend";
     
     return (
-      <div className="space-y-8 animate-slide-in-left max-w-4xl mx-auto">
+      <div className="space-y-6 md:space-y-8 animate-slide-in-left max-w-4xl mx-auto px-4">
         <Card className={cn(
-          "p-8 bg-gradient-to-br",
+          "p-6 md:p-8 bg-gradient-to-br",
           isCorrect 
             ? "from-quiz-correct/20 to-quiz-correct/10 border-quiz-correct"
             : "from-quiz-incorrect/20 to-quiz-incorrect/10 border-quiz-incorrect"
         )}>
-          <div className="text-center space-y-6">
-            <div className="text-8xl">{question.emoji}</div>
+          <div className="text-center space-y-4 md:space-y-6">
+            <div className="text-6xl md:text-8xl">{question.emoji}</div>
             
-            <div className={cn("text-6xl", isCorrect ? "text-quiz-correct" : "text-quiz-incorrect-foreground")}>
-              {isCorrect ? <CheckCircle className="w-16 h-16 mx-auto" /> : <XCircle className="w-16 h-16 mx-auto" />}
+            <div className={cn("text-5xl md:text-6xl", isCorrect ? "text-quiz-correct" : "text-quiz-incorrect-foreground")}>
+              {isCorrect ? <CheckCircle className="w-12 h-12 md:w-16 md:h-16 mx-auto" /> : <XCircle className="w-12 h-12 md:w-16 md:h-16 mx-auto" />}
             </div>
             
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-2xl md:text-3xl font-bold">
               {isCorrect ? "Correct!" : "Oops!"}
             </h3>
             
-            <div className="space-y-4">
-              <p className="text-xl font-semibold">
+            <div className="space-y-3 md:space-y-4">
+              <p className="text-lg md:text-xl font-semibold">
                 The correct answer is: <span className={cn("font-bold", correctAnswerText === "Legend" ? "text-quiz-legend" : "text-quiz-lamp")}>
                   {correctAnswerText}
                 </span>
               </p>
               
-              <p className="text-lg leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                 {question.explanation}
               </p>
             </div>
@@ -308,29 +309,29 @@ export const QuizGame = () => {
     switch (currentSlide) {
       case "conclusion1":
         return (
-          <div className="text-center space-y-8 animate-fade-in max-w-4xl mx-auto">
-            <div className="text-8xl mb-8">🎯</div>
-            <h2 className="text-5xl font-bold text-primary mb-8">Quiz Complete!</h2>
-            <Card className="p-8 bg-gradient-to-br from-primary/20 to-primary/10 border-primary">
-              <h3 className="text-3xl font-bold mb-6">Your Score</h3>
-              <div className="text-6xl font-bold text-primary mb-4">{score}/{totalQuestions}</div>
-              <p className="text-xl">
+          <div className="text-center space-y-6 md:space-y-8 animate-fade-in max-w-4xl mx-auto px-4">
+            <div className="text-6xl md:text-8xl mb-6 md:mb-8">🎯</div>
+            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6 md:mb-8">Quiz Complete!</h2>
+            <Card className="p-6 md:p-8 bg-gradient-to-br from-primary/20 to-primary/10 border-primary">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Your Score</h3>
+              <div className="text-4xl md:text-6xl font-bold text-primary mb-3 md:mb-4">{score}/{totalQuestions}</div>
+              <p className="text-lg md:text-xl">
                 {score === totalQuestions ? "Perfect! You're a legend at spotting legends!" :
                  score >= 3 ? "Great job! You can tell the difference between lamps and legends!" :
                  "Good try! Keep practicing to spot the legends!"}
               </p>
             </Card>
-            <h3 className="text-3xl font-semibold">What did we learn from Lamp or Legend game quiz?</h3>
+            <h3 className="text-xl md:text-3xl font-semibold">What did we learn from Lamp or Legend game quiz?</h3>
           </div>
         );
       
       case "conclusion2":
         return (
-          <div className="text-center space-y-8 animate-fade-in max-w-4xl mx-auto">
-            <Card className="p-8 bg-gradient-to-br from-quiz-legend/20 to-quiz-legend/10 border-quiz-legend">
-              <div className="text-8xl mb-6">👑</div>
-              <h3 className="text-4xl font-bold text-quiz-legend mb-6">Legends</h3>
-              <p className="text-xl leading-relaxed">
+          <div className="text-center space-y-6 md:space-y-8 animate-fade-in max-w-4xl mx-auto px-4">
+            <Card className="p-6 md:p-8 bg-gradient-to-br from-quiz-legend/20 to-quiz-legend/10 border-quiz-legend">
+              <div className="text-6xl md:text-8xl mb-4 md:mb-6">👑</div>
+              <h3 className="text-3xl md:text-4xl font-bold text-quiz-legend mb-4 md:mb-6">Legends</h3>
+              <p className="text-lg md:text-xl leading-relaxed">
                 Legends are the drivers of their story, they make their own decisions, take action, and directly shape the plot.
               </p>
             </Card>
@@ -339,15 +340,21 @@ export const QuizGame = () => {
       
       case "conclusion3":
         return (
-          <div className="text-center space-y-8 animate-fade-in max-w-4xl mx-auto">
-            <Card className="p-8 bg-gradient-to-br from-quiz-lamp/20 to-quiz-lamp/10 border-quiz-lamp">
-              <div className="text-8xl mb-6">🪔</div>
-              <h3 className="text-4xl font-bold text-quiz-lamp mb-6">Lamps</h3>
-              <p className="text-xl leading-relaxed">
+          <div className="text-center space-y-6 md:space-y-8 animate-fade-in max-w-4xl mx-auto px-4">
+            <Card className="p-6 md:p-8 bg-gradient-to-br from-quiz-lamp/20 to-quiz-lamp/10 border-quiz-lamp">
+              <div className="w-32 h-32 md:w-48 md:h-48 mx-auto mb-4 md:mb-6 rounded-lg overflow-hidden">
+                <img 
+                  src={lampImage} 
+                  alt="Decorative lamp representing characters without agency" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-quiz-lamp mb-4 md:mb-6">Lamps</h3>
+              <p className="text-lg md:text-xl leading-relaxed">
                 In contrast, lamps are like decoration pieces lacking the power to make decisions. They often follow others or simply act as side characters in someone's journey.
               </p>
             </Card>
-            <div className="mt-12">
+            <div className="mt-8 md:mt-12">
               <Button 
                 size="lg" 
                 onClick={() => {
@@ -357,7 +364,7 @@ export const QuizGame = () => {
                   setSelectedAnswer(null);
                   setShowResult(false);
                 }}
-                className="text-xl px-8 py-6"
+                className="text-lg md:text-xl px-6 md:px-8 py-4 md:py-6"
               >
                 Play Again
               </Button>
@@ -368,9 +375,9 @@ export const QuizGame = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4">
-      <div className="max-w-6xl mx-auto pt-8">
-        <div className="min-h-[600px] flex flex-col justify-center">
+    <div className="min-h-screen bg-background p-2 md:p-4">
+      <div className="max-w-6xl mx-auto pt-4 md:pt-8">
+        <div className="min-h-[500px] md:min-h-[600px] flex flex-col justify-center">
           {currentSlide === "intro" && renderIntroSlide()}
           {currentSlide === "instructions" && renderInstructionsSlide()}
           {currentSlide === "question" && renderQuestionSlide()}
@@ -379,21 +386,24 @@ export const QuizGame = () => {
         </div>
         
         {currentSlide !== "conclusion3" && (
-          <div className="flex justify-between items-center mt-8 px-4">
-            <Button
-              variant="outline"
-              onClick={handlePrevious}
-              disabled={currentSlide === "intro"}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Previous
-            </Button>
+          <div className="flex justify-between items-center mt-6 md:mt-8 px-2 md:px-4">
+            {currentSlide !== "intro" ? (
+              <Button
+                variant="outline"
+                onClick={handlePrevious}
+                className="flex items-center gap-2 text-sm md:text-base"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Previous
+              </Button>
+            ) : (
+              <div />
+            )}
             
             <Button
               onClick={handleNext}
               disabled={currentSlide === "question" && !selectedAnswer}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 text-sm md:text-base"
             >
               Next
               <ArrowRight className="w-4 h-4" />
