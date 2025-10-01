@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, XCircle, Crown, Lightbulb, ArrowLeft, ArrowRight } from "lucide-react";
-import lampImage from "@/assets/lamp-image.png";
+import lampImage from "@/assets/lamp-image.jpg";
 import { cn } from "@/lib/utils";
 
 interface QuizQuestion {
@@ -167,7 +167,7 @@ export const QuizGame = () => {
   const renderIntroSlide = () => (
     <div className="text-center space-y-6 md:space-y-8 animate-fade-in px-4">
       <div className="text-6xl md:text-8xl animate-bounce-gentle">🪔</div>
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent px-4">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent px-4 leading-tight py-2">
         Lamp ya Legend
       </h1>
       <div className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
