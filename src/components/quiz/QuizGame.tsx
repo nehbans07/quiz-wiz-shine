@@ -392,7 +392,7 @@ export const QuizGame = () => {
         
         {currentSlide !== "conclusion3" && currentSlide !== "question" && (
           <div className="flex justify-between items-center mt-6 md:mt-8 px-2 md:px-4">
-            {currentSlide !== "intro" ? (
+            {currentSlide !== "intro" && currentSlide !== "answer" ? (
               <Button
                 variant="outline"
                 onClick={handlePrevious}
