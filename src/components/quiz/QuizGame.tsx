@@ -87,6 +87,11 @@ export const QuizGame = () => {
 
   const handleAnswerSelect = (answer: "A" | "B") => {
     setSelectedAnswer(answer);
+    if (answer === quizData[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+    setShowResult(true);
+    setCurrentSlide("answer");
   };
 
   const handleNextFromQuestion = () => {
@@ -162,7 +167,7 @@ export const QuizGame = () => {
   const renderIntroSlide = () => (
     <div className="text-center space-y-6 md:space-y-8 animate-fade-in px-4">
       <div className="text-6xl md:text-8xl animate-bounce-gentle">🪔</div>
-      <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-quiz-legend to-quiz-lamp bg-clip-text text-transparent px-4">
         Lamp ya Legend
       </h1>
       <div className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
@@ -385,7 +390,7 @@ export const QuizGame = () => {
           {(currentSlide === "conclusion1" || currentSlide === "conclusion2" || currentSlide === "conclusion3") && renderConclusionSlides()}
         </div>
         
-        {currentSlide !== "conclusion3" && (
+        {currentSlide !== "conclusion3" && currentSlide !== "question" && (
           <div className="flex justify-between items-center mt-6 md:mt-8 px-2 md:px-4">
             {currentSlide !== "intro" ? (
               <Button
@@ -402,7 +407,6 @@ export const QuizGame = () => {
             
             <Button
               onClick={handleNext}
-              disabled={currentSlide === "question" && !selectedAnswer}
               className="flex items-center gap-2 text-sm md:text-base"
             >
               Next
